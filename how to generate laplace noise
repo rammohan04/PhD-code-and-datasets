@@ -1,0 +1,12 @@
+import numpy as np
+
+def laplace_noise_from_normal(mean, scale, size=1):
+    z1 = np.random.normal(0, 1, size=size)
+    z2 = np.random.normal(0, 1, size=size)
+    noise = mean - scale * np.sign(z1) * np.log(np.abs(z2))
+    return noise
+
+mean = 0
+scale = 2
+noise = laplace_noise_from_normal(mean, scale, size=1)
+print(noise)
